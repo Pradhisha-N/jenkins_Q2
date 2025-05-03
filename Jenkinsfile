@@ -21,7 +21,7 @@ pipeline {
                 sh 'mvn test'
                 }
             }
-        stage('Deploy to Dev') {
+        stage('Deploy') {
             steps {
                 echo 'Deploying to development environment'
     }
