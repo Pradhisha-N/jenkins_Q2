@@ -15,5 +15,12 @@ pipeline {
                 mavenBuild('clean install')  // Call function from shared library
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Running unit tests'
+                sh 'mvn test'
+                }
+            }
+
     }
 }
