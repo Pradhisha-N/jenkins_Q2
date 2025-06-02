@@ -1,4 +1,5 @@
-def call(String goals = 'clean install') {
-    echo "Running Maven build with goals: ${goals}"
-    sh "mvn ${goals}"
+def call() {
+    stage('Maven Build') {
+        sh 'mvn clean install'
+    }
 }
