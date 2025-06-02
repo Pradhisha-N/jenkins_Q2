@@ -1,4 +1,4 @@
-@Library('sharedlib') _  // Load shared library
+@Library('jenkins-shared-lib') _  // Name configured in Jenkins
 
 pipeline {
     agent any
@@ -10,23 +10,10 @@ pipeline {
             }
         }
 
-        stage('Build with Maven') {
+        stage('Build with Shared Library') {
             steps {
-                mavenBuild('clean install')  // Call function from shared library
+                mavenBuild()  // This comes from mavenBuild.groovy in shared lib
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Running unit tests'
-                sh 'mvn test'
-                }
-            }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying to development environment'
-    }
-}
-
-
     }
 }
